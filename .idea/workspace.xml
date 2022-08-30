@@ -1,11 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="4d213230-6599-4825-8756-1398617950a4" name="Changes" comment="" />
+    <list default="true" id="4d213230-6599-4825-8756-1398617950a4" name="Changes" comment="feat: First Added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Dockerfile" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/agent.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/agent.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="MacroExpansionManager">
     <option name="directoryName" value="qyjry2mr" />
@@ -14,6 +22,7 @@
     <option name="stateVersion" value="1" />
   </component>
   <component name="ProjectId" id="2BVpNcDa8qWpLeXh2LOEXCki0Al" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
@@ -41,10 +50,38 @@
       <workItem from="1661757846554" duration="2211000" />
       <workItem from="1661762582645" duration="49000" />
       <workItem from="1661762659718" duration="1610000" />
+      <workItem from="1661764828131" duration="332000" />
+      <workItem from="1661826158895" duration="613000" />
+      <workItem from="1661827348907" duration="275000" />
+      <workItem from="1661827776317" duration="273000" />
+      <workItem from="1661828177500" duration="2739000" />
     </task>
+    <task id="LOCAL-00001" summary="feat: First Added">
+      <created>1661765072865</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1661765072865</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="version" value="3" />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State />
+          </value>
+        </entry>
+      </map>
+    </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="feat: First Added" />
+    <option name="LAST_COMMIT_MESSAGE" value="feat: First Added" />
   </component>
 </project>

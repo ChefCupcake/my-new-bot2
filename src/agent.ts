@@ -1,4 +1,4 @@
-import BigNumber from 'bignumber.js'
+import { BigNumber } from "ethers";
 import {
     BlockEvent,
     Finding,
@@ -11,44 +11,38 @@ import {
 
 export const ACCOUNT = "0x1a5238878B2c138B9DCCe2ea6BE9CF7e9F12Cf6a"
 export const MIN_BALANCE = "50000000000000000" // 0.05 BNB
-export const RPC_URL = "https://goerli.infura.io/v3/cb868cd8386c44bb9f7ff01883457af7"
+export const RPC_URL = "https://bsc-dataseed.binance.org/"
 
-let currentBlockNumber = -1;
+export const provideBotHandler = (
+    provider: ethers.providers.JsonRpcProvider
+): HandleBlock => {
+    return async (blockEvent: BlockEvent): Promise<Finding[]> => {
+        // report finding if specified account balance falls below threshold
+        const findings: Finding[] = []
 
-const rpcProvider = new ethers.providers.JsonRpcProvider(RPC_URL)
+        const accountBalance = BigNumber.from((await provider.getBalance(ACCOUNT, blockEvent.blockNumber)).toString())
+        if (accountBalance.gte(MIN_BALANCE)) return findings
 
-async function initialize() {
-    currentBlockNumber = await rpcProvider.getBlockNumber()
-}
-
-async function handleBlock(blockEvent: BlockEvent) {
-    // report finding if specified account balance falls below threshold
-    const findings: Finding[] = []
-
-    const latestBlockNumber = await rpcProvider.getBlockNumber()
-
-
-    const accountBalance = new BigNumber((await rpcProvider.getBalance(ACCOUNT, blockEvent.blockNumber)).toString())
-    if (accountBalance.isGreaterThanOrEqualTo(MIN_BALANCE)) return findings
-
-    findings.push(
-        Finding.fromObject({
-                name: "Minimum Account Balance",
-                description: `Account balance (${accountBalance.toString()}) below threshold (${MIN_BALANCE})`,
-                alertId: "PANCAKE-1",
-                severity: FindingSeverity.Info,
-                type: FindingType.Suspicious,
-                metadata: {
-                    balance: accountBalance.toString()
+        findings.push(
+            Finding.fromObject({
+                    name: "Minimum Account Balance",
+                    description: `Account balance (${accountBalance.toString()}) below threshold (${MIN_BALANCE})`,
+                    alertId: "PANCAKE-1",
+                    severity: FindingSeverity.Info,
+                    type: FindingType.Suspicious,
+                    protocol: "Pancakeswap",
+                    metadata: {
+                        balance: accountBalance.toString()
+                    }
                 }
-            }
-        ))
+            ))
 
-    return findings
+        return findings
+    }
 }
-
 
 export default {
-    initialize,
-    handleBlock,
+    handleBlock: provideBotHandler(
+        getEthersProvider()
+    ),
 }
